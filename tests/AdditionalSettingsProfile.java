@@ -2,7 +2,6 @@ package tests;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-
 import objects.Login;
 import objects.Settings;
 
@@ -10,7 +9,7 @@ public class AdditionalSettingsProfile {
 
 	public static void main(String[] args) throws Throwable {
 		
-		System.setProperty("webdriver.chrome.driver", "C:\\drajver\\chromedriver.exe");
+	    System.setProperty("webdriver.chrome.driver", "C:\\drajver\\chromedriver.exe");
 	    WebDriver wd=new ChromeDriver();
 	    
 		wd.manage().window().maximize();
@@ -19,7 +18,7 @@ public class AdditionalSettingsProfile {
 		Login.closePopUp(wd);
 		
 		Login.login(wd);
-        Thread.sleep(2000);
+               Thread.sleep(2000);
         
 		Login.loginEmail(wd, "petrovic88@itbootcamp.rs");
 		Login.loginPass(wd, "petrovic88");

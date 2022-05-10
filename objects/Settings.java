@@ -24,7 +24,7 @@ public class Settings {
 	public static final String BIRTH_DAY="//*[@id=\"birth_day\"]";
 	public static final String SAVECHANGES="/html/body/table/tbody/tr/td/div[9]/div[5]/div[2]/div[2]/div[2]/table/tbody/tr/td[2]/form/table/tbody/tr[42]/td/input";
 	
-	//notifications and language setup 
+	//Notifications and language setup 
 	
 	public static void turnOffNotifications(WebDriver wd) throws Throwable {
 		wd.findElement(By.xpath(NOTIFICATIONS)).click();
@@ -54,7 +54,7 @@ public class Settings {
 		wd.findElement(By.xpath(SAVEBUTTONEMP)).click();
 	}
 
-	//for AdditionalProfileSettings
+	//AdditionalProfileSettings
 	
 	public static void editDetailsTab(WebDriver wd) {
 		wd.findElement(By.xpath(EDITTAB)).click();
@@ -118,4 +118,5 @@ public class Settings {
 	public static void saveChanges(WebDriver wd) {
 		wd.findElement(By.xpath(SAVECHANGES)).click();
 	}
+	
 }

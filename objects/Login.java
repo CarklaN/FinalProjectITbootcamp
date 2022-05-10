@@ -36,7 +36,6 @@ public class Login {
 	public static final String PROFILEMENU="//*[@id=\"wrap_us_menu\"]/i";
 	public static final String SIGNOUT="//*[@id=\"userm\"]/div/div[5]/a";
 	
-	
 	//close pop up at the beginning
 	
 	public static void closePopUp(WebDriver wd) {
@@ -79,7 +78,6 @@ public class Login {
 	public static void clickFunctionalRole(WebDriver wd, int positionOnList) {
 		WebElement elem = wd.findElement(By.xpath(FUNCTIONAL_ROLE));
 		elem.click();
-		
 		for(int i=1;i<=positionOnList; i++) {
 		elem.sendKeys(Keys.ARROW_DOWN);
 		}

@@ -5,7 +5,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-
 import objects.AddEmployee;
 import objects.Login;
 
@@ -13,7 +12,7 @@ public class EmployeeAddAndEdit {
 	
 	//Add new employee, change data and add picture
 	
-WebDriver wd;
+        WebDriver wd;
 	
 	@BeforeClass
 	public void startPage() throws Throwable  {
@@ -23,7 +22,7 @@ WebDriver wd;
 		wd.get(Login.HOMEURL);
 		Login.closePopUp(wd);
 		Login.login(wd);
-        Thread.sleep(2000);
+               Thread.sleep(2000);
 		Login.loginEmail(wd, "petrovic88@itbootcamp.rs");
 		Login.loginPass(wd, "petrovic88");
 		Login.loginButton(wd);
@@ -84,16 +83,13 @@ WebDriver wd;
 	public void addPicture() throws Throwable {
 		AddEmployee.openShiftTab(wd);
 		Thread.sleep(5000);
-		
 		AddEmployee.clickEmployee(wd);
 		Thread.sleep(2000);
-		
 		AddEmployee.editDetails(wd);
 		Thread.sleep(3000);
 		AddEmployee.pictureUpload(wd);
 		Thread.sleep(5000);
 		wd.close();
 		}
-	
 
 }

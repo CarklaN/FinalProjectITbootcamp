@@ -15,6 +15,8 @@ public class MenuElements {
 	public static final String PAY_XPATH="//*[@id=\"sn_payroll\"]/span";
 	public static final String REPORTS_XPATH="//*[@id=\"sn_reports\"]/span";
 	
+	//Web page objects and methods for menu
+	
 	public static void dashboard(WebDriver wd) {
 	    wd.findElement(By.xpath(DASH_XPATH)).click();;
 	}
@@ -50,4 +52,5 @@ public class MenuElements {
 	public static void reports(WebDriver wd) {
 		wd.findElement(By.xpath(REPORTS_XPATH)).click();
 	}
+	
 }
