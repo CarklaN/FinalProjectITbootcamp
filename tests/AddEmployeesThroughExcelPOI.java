@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
@@ -19,8 +18,7 @@ import objects.AddEmployee;
 import objects.Login;
 
 public class AddEmployeesThroughExcelPOI {
-	
-	
+		
 	WebDriver wd;
 	
 	@BeforeClass
@@ -43,33 +41,27 @@ public class AddEmployeesThroughExcelPOI {
 	public void addEmployees() throws Throwable  {
 		
 		    AddEmployee.openShiftTab(wd);
-		    Thread.sleep(3000); 
-		    
+		    Thread.sleep(3000);     
 		    AddEmployee.addEmp(wd);
-			Thread.sleep(2000);
-
-		File f = new File("employees.xlsx");
+                   Thread.sleep(2000);
+		    File f = new File("employees.xlsx");
 		
 		try {
 			InputStream inp = new FileInputStream(f); 
 			XSSFWorkbook wb = new XSSFWorkbook(inp); 
-			Sheet sheet = wb.getSheetAt(0); 
-
+			Sheet sheet = wb.getSheetAt(0);
 			SoftAssert sa = new SoftAssert();
 			
-			for (int i = 0; i < 5 ; i++) { //go through excel sheet
-				
-				Row row = sheet.getRow(i);
-				
+			for (int i = 0; i < 5 ; i++) {         //go through excel sheet
+			
+			     	Row row = sheet.getRow(i);
 				Cell c1 = row.getCell(0);
 				Cell c2 = row.getCell(1);
 				Cell c3 = row.getCell(2);
-	
 				//convert cell inside text to String
 				String name = c1.toString();         
 				String lastName = c2.toString();
 				String position = c3.toString();
-				
 				//insert defined string inside the name, last name, and position brackets
 				AddEmployee.inputName(wd, name);
 				Thread.sleep(1000);
@@ -79,26 +71,28 @@ public class AddEmployeesThroughExcelPOI {
 				Thread.sleep(1000);
 				AddEmployee.pressContinue(wd);
 				Thread.sleep(2000);
-				
 				//get page source, and look inside it for name of added employee
 				String et=wd.getPageSource();
-				
+
 				boolean contain=false;
+				
 				if(et.contains(name+" "+lastName)) 
 					contain=true;
+					
 				Assert.assertTrue(contain);
 				Thread.sleep(2000);
+				
 				AddEmployee.openShiftTab(wd);
 				Thread.sleep(3000);
+				
 				AddEmployee.addEmp(wd);
 			}
 			sa.assertAll();
-			
-			wb.close();
-			
+			wb.close();		
 		} catch (IOException e) {
 			System.out.println("Nije pronadjen fajl!");
 			e.printStackTrace();
 		} 
 	}
+	
 }

@@ -2,7 +2,6 @@ package objects;
 
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -22,8 +21,6 @@ public class AddEmployee {
 	public static final String PICTUREUPLOAD="//*[@id=\"in-btn\"]";
 	public static final String STAFFTAB_URL="https://agroit.humanity.com/app/staff/list/";
 
-	
-	
 	public static void openShiftTab(WebDriver wd) {
 		wd.findElement(By.xpath(SHIFTTAB)).click();
 	}
@@ -87,7 +84,6 @@ public class AddEmployee {
 	
 	
 	public static void pictureUpload(WebDriver wd) throws Throwable {
-		
 		WebElement upl=wd.findElement(By.xpath(PICTUREUPLOAD));
 		upl.click();
 		Thread.sleep(2000);
@@ -114,7 +110,7 @@ public class AddEmployee {
 		r.keyRelease(KeyEvent.VK_G);
 		r.keyPress(KeyEvent.VK_ENTER);    
 		r.keyRelease(KeyEvent.VK_ENTER);
-		Thread.sleep(3000);
-		
+		Thread.sleep(3000);	
 	}
+	
 }
